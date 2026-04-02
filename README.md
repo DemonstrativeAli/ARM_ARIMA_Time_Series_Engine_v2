@@ -1,4 +1,4 @@
-<![CDATA[<div align="center">
+<div align="center">
 
 # 📈 ARM-ARIMA Bot API
 
@@ -21,7 +21,7 @@
 
 ## 🏗️ Architecture Overview
 
-```
+```text
                     ┌──────────────────────────────────────────────────┐
                     │              ARM-ARIMA Bot API                   │
                     │                  v0.02                           │
@@ -75,8 +75,8 @@
 
 Rather than predicting price directly, the system models the **ratio between actual values (CPCP) and raw predicted values (MPN5P)**, then applies this learned ratio correction factor back to raw predictions — yielding significantly improved accuracy metrics:
 
-```
-Corrected_Prediction = MPN5P × Predicted_Ratio
+```math
+Corrected\_Prediction = MPN5P \times Predicted\_Ratio
 ```
 
 This ratio-correction approach, combined with **Savitzky-Golay smoothing** and **day-by-day walk-forward validation**, achieves a **trend dispersion of ~2.3%** on the corrected predictions.
@@ -248,7 +248,7 @@ result = {
 
 ### Score Comparison Summary
 
-```
+```text
                Trend Dispersion    R²         MAPE
 Raw MPN5P      ████████████  4.51%   0.8821     —
 One-Shot       ██████████    2.76%   0.9776    2.77%
@@ -356,7 +356,7 @@ Records are persisted to `arima_day_by_day_records.jsonl` for audit and replay.
 
 ## 📂 Project Structure
 
-```
+```text
 ARM_ARIMA_BOT-API_0.02/
 ├── app.py                          # Flask + Ariadne GraphQL server
 ├── run_bot.py                      # CLI bot — day-by-day prediction runner
@@ -476,4 +476,3 @@ This is a private research project. All rights reserved.
 *ARIMA • Savitzky-Golay • GraphQL • Walk-Forward Validation*
 
 </div>
-]]>
